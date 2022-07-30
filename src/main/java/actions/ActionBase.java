@@ -20,9 +20,9 @@ import constants.PropertyConst;
  *
  */
 public abstract class ActionBase {
-    protected ServletContext context;
-    protected HttpServletRequest request;
-    protected HttpServletResponse response;
+    protected ServletContext context;//Webアプリケーションのコンテキスト情報
+    protected HttpServletRequest request;//リクエスト情報のオブジェクト
+    protected HttpServletResponse response;//レスポンス情報のオブジェクト
 
     /**
      * 初期化処理
@@ -61,7 +61,7 @@ public abstract class ActionBase {
             //パラメータからcommandを取得
             String command = request.getParameter(ForwardConst.CMD.getValue());
 
-            //ommandに該当するメソッドを実行する
+            //commandに該当するメソッドを実行する
             //(例: action=Employee command=show の場合 EmployeeActionクラスのshow()メソッドを実行する)
             commandMethod = this.getClass().getDeclaredMethod(command, new Class[0]);
             commandMethod.invoke(this, new Object[0]); //メソッドに渡す引数はなし
@@ -187,7 +187,7 @@ public abstract class ActionBase {
     }
 
     /**
-     * リクエストパラメータから引数で指定したパラメータ名の値を返却する
+     * リクエストスコープから指定されたパラメータの値を取得し、返却する
      * @param key パラメータ名
      * @return パラメータの値
      */
@@ -242,3 +242,4 @@ public abstract class ActionBase {
     }
 
 }
+

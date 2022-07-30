@@ -16,7 +16,7 @@ public class EmployeeValidator {
     /**
      * 従業員インスタンスの各項目についてバリデーションを行う
      * @param service 呼び出し元Serviceクラスのインスタンス
-     * @param ev EmployeeViewのインスタンス
+     * @param ev EmployeeServiceのインスタンス
      * @param codeDuplicateCheckFlag 社員番号の重複チェックを実施するかどうか(実施する:true 実施しない:false)
      * @param passwordCheckFlag パスワードの入力チェックを実施するかどうか(実施する:true 実施しない:false)
      * @return エラーのリスト
